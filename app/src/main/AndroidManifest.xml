@@ -9,8 +9,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
+        <activity android:name=".ui.splash_screen.SplashActivity" />
         <activity
-            android:name=".ui.splash_screen.SplashActivity"
+            android:name=".ui.signin.MainActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,30 +28,38 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.add_entry.AddWalletEntryActivity"
+            android:theme="@style/MaterialTheme1"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.main.MainActivity" />
         </activity>
-        <activity android:name=".ui.options.OptionsActivity"
-            android:screenOrientation="portrait" >
+        <activity
+            android:name=".ui.options.OptionsActivity"
+            android:theme="@style/MaterialTheme1"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.main.MainActivity" />
         </activity>
-        <activity android:name=".ui.main.history.edit_entry.EditWalletEntryActivity">
+        <activity android:name=".ui.main.history.edit_entry.EditWalletEntryActivity"
+            android:theme="@style/MaterialTheme1" >
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.main.MainActivity" />
         </activity>
         <activity
             android:name=".ui.options.categories.CustomCategoriesActivity"
+            android:theme="@style/MaterialTheme1"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.options.categories.AddCustomCategoryActivity"
+            android:theme="@style/MaterialTheme1"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.options.categories.EditCustomCategoryActivity"
+            android:theme="@style/MaterialTheme1"
             android:screenOrientation="portrait" />
     </application>
 

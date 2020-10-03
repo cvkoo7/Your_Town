@@ -1,6 +1,7 @@
 package pl.cyfrogen.budget.firebase;
 
-import android.arch.lifecycle.LiveData;
+
+import androidx.lifecycle.LiveData;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
