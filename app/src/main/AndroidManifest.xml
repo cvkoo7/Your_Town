@@ -9,10 +9,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
-        <activity android:name=".ui.splash_screen.SplashActivity" />
+        <activity android:name=".ui.signin.MainActivity" />
         <activity
-            android:name=".ui.signin.MainActivity"
-            android:theme="@style/SplashTheme">
+            android:name=".ui.splash_screen.SplashScreenActivity"
+            android:theme="@style/MaterialTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

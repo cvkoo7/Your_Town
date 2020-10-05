@@ -7,11 +7,14 @@ import android.os.Bundle;
 
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -36,7 +39,9 @@ import pl.cyfrogen.budget.util.CurrencyHelper;
 import pl.cyfrogen.budget.R;
 import pl.cyfrogen.budget.firebase.models.WalletEntry;
 
-public class AddWalletEntryActivity extends CircularRevealActivity {
+public class AddWalletEntryActivity extends CircularRevealActivity implements
+        AdapterView.OnItemSelectedListener {
+    String[] country = { "Jay", "Yash", "Nitin", "Aniket", "Other"};
 
     private Spinner selectCategorySpinner;
     private TextInputEditText selectNameEditText;
@@ -122,7 +127,17 @@ public class AddWalletEntryActivity extends CircularRevealActivity {
             }
         });
 
+        Spinner spin = (Spinner) findViewById(R.id.spinner2);
+        spin.setOnItemSelectedListener(this);
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.row, R.id.text, country);
+        spin.setAdapter(adapter);
+        //Creating the ArrayAdapter instance having the country list
+//        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,country);
+//        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+//        spin.setAdapter(aa);
     }
 
     private void dateUpdated() {
@@ -199,4 +214,13 @@ public class AddWalletEntryActivity extends CircularRevealActivity {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(getApplicationContext(),country[position] , Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
