@@ -311,7 +311,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/account_box/baseline_account_box_24.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/emoji_transportation/baseline_emoji_transportation_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -321,7 +321,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="category_account" />
+                            <entry key="outputName" value="category_transportation" />
                             <entry key="sourceFile" value="C:\Users\cvk\Downloads\images.svg" />
                           </map>
                         </option>

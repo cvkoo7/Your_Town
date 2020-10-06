@@ -1,7 +1,9 @@
 package pl.cyfrogen.budget.ui.add_entry;
 
+import android.app.ActivityOptions;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,6 +36,7 @@ import pl.cyfrogen.budget.firebase.FirebaseElement;
 import pl.cyfrogen.budget.firebase.FirebaseObserver;
 import pl.cyfrogen.budget.firebase.viewmodel_factories.UserProfileViewModelFactory;
 import pl.cyfrogen.budget.firebase.models.User;
+import pl.cyfrogen.budget.ui.main.MainActivity;
 import pl.cyfrogen.budget.util.CategoriesHelper;
 import pl.cyfrogen.budget.models.Category;
 import pl.cyfrogen.budget.util.CurrencyHelper;
@@ -43,6 +47,9 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements
         AdapterView.OnItemSelectedListener {
     String[] country = { "Jay", "Yash", "Nitin", "Aniket", "Other"};
 
+
+
+    String name;
     private Spinner selectCategorySpinner;
     private TextInputEditText selectNameEditText;
     private Calendar chosenDate;
@@ -85,6 +92,16 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements
             }
         });
 
+        FloatingActionButton set_reminder = findViewById(R.id.reminder);
+        set_reminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityOptions options =
+                        ActivityOptions.makeSceneTransitionAnimation(AddWalletEntryActivity.this, set_reminder, set_reminder.getTransitionName());
+                startActivity(new Intent(AddWalletEntryActivity.this, pl.cyfrogen.budget.notification.Lists.class), options.toBundle());
+
+            }
+        });
 
         EntryTypesAdapter typeAdapter = new EntryTypesAdapter(this,
                 R.layout.new_entry_type_spinner_row, Arrays.asList(
@@ -118,7 +135,7 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements
                                     CurrencyHelper.convertAmountStringToLong(selectAmountEditText.getText().toString()),
                             chosenDate.getTime(),
                             ((Category) selectCategorySpinner.getSelectedItem()).getCategoryID(),
-                            selectNameEditText.getText().toString());
+                            getName());
                 } catch (EmptyStringException e) {
                     selectNameInputLayout.setError(e.getMessage());
                 } catch (ZeroBalanceDifferenceException e) {
@@ -216,11 +233,18 @@ public class AddWalletEntryActivity extends CircularRevealActivity implements
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(),country[position] , Toast.LENGTH_LONG).show();
+        setName(country[position]);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

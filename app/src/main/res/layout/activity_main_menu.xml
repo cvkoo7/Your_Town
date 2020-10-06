@@ -31,6 +31,7 @@
             app:tabGravity="fill"
             app:tabMode="fixed"
             app:tabTextColor="@color/textColorPrimary"/>
+
     </com.google.android.material.appbar.AppBarLayout>
     <include layout="@layout/content_main_menu" />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -47,5 +48,6 @@
         android:layout_margin="16dp"
         app:borderWidth="0dp"
         app:elevation="6dp" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

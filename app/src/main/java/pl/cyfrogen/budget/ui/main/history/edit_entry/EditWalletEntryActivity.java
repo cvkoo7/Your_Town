@@ -8,6 +8,8 @@ import android.os.Bundle;
 
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
@@ -43,8 +45,10 @@ import pl.cyfrogen.budget.util.CurrencyHelper;
 import pl.cyfrogen.budget.R;
 import pl.cyfrogen.budget.firebase.models.WalletEntry;
 
-public class EditWalletEntryActivity extends BaseActivity {
-
+public class EditWalletEntryActivity extends BaseActivity implements
+    AdapterView.OnItemSelectedListener {
+        String[] country = { "Jay", "Yash", "Nitin", "Aniket", "Other"};
+    String name;
     private Spinner selectCategorySpinner;
     private TextInputEditText selectNameEditText;
     private Calendar choosedDate;
@@ -166,7 +170,12 @@ public class EditWalletEntryActivity extends BaseActivity {
             }
         });
 
+        Spinner spin = (Spinner) findViewById(R.id.spinner2);
+        spin.setOnItemSelectedListener(this);
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.row, R.id.text, country);
+        spin.setAdapter(adapter);
     }
 
     public void dataUpdated() {
@@ -280,4 +289,20 @@ public class EditWalletEntryActivity extends BaseActivity {
         return true;
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        setName(country[position]);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

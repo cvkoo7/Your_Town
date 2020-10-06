@@ -54,6 +54,11 @@
             android:theme="@style/MaterialTheme1"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".notification.Lists"
+            android:theme="@style/MaterialTheme1"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".ui.options.categories.AddCustomCategoryActivity"
             android:theme="@style/MaterialTheme1"
             android:screenOrientation="portrait" />
@@ -61,6 +66,10 @@
             android:name=".ui.options.categories.EditCustomCategoryActivity"
             android:theme="@style/MaterialTheme1"
             android:screenOrientation="portrait" />
+
+        <receiver
+            android:name=".notification.ReminderBroadcast"/>
+
     </application>
 
 </manifest>

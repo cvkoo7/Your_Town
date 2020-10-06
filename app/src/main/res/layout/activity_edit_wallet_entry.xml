@@ -111,6 +111,7 @@
                         android:layout_marginBottom="8dp"
                         android:background="@color/divider_color" />
 
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/select_name_inputlayout"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
