@@ -32,7 +32,7 @@
             android:title="Set first week day" />
         <Preference
             android:key="@string/pref_key_policy"
-            android:title="Privacy policy" />
+            android:title="About Developer" />
         <Preference
             android:key="@string/pref_key_logout"
             android:title="Logout" />

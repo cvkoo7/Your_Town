@@ -45,10 +45,8 @@ import pl.cyfrogen.budget.util.CurrencyHelper;
 import pl.cyfrogen.budget.R;
 import pl.cyfrogen.budget.firebase.models.WalletEntry;
 
-public class EditWalletEntryActivity extends BaseActivity implements
-    AdapterView.OnItemSelectedListener {
-        String[] country = { "Jay", "Yash", "Nitin", "Aniket", "Other"};
-    String name;
+public class EditWalletEntryActivity extends BaseActivity  {
+
     private Spinner selectCategorySpinner;
     private TextInputEditText selectNameEditText;
     private Calendar choosedDate;
@@ -170,12 +168,6 @@ public class EditWalletEntryActivity extends BaseActivity implements
             }
         });
 
-        Spinner spin = (Spinner) findViewById(R.id.spinner2);
-        spin.setOnItemSelectedListener(this);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.row, R.id.text, country);
-        spin.setAdapter(adapter);
     }
 
     public void dataUpdated() {
@@ -287,22 +279,5 @@ public class EditWalletEntryActivity extends BaseActivity implements
     {
         onBackPressed();
         return true;
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        setName(country[position]);
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
